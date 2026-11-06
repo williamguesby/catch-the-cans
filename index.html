@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffcb05">
+    <title>Water Quest</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="page-header">
+        <h1>Water Quest</h1>
+        <p class="intro">Run, jump, and bring water home to the village.</p>
+      </header>
+
+      <section class="game-card" aria-labelledby="game-heading">
+        <h2 id="game-heading" class="visually-hidden">Water Quest game</h2>
+
+        <div class="game-stats" aria-label="Round stats">
+          <div class="stat">
+            <span class="stat-label">Cans Collected</span>
+            <output id="score" class="stat-value" aria-live="polite">0</output>
+          </div>
+          <div class="stat timer-stat">
+            <span class="stat-label">Time</span>
+            <output id="timer" class="stat-value" aria-label="60 seconds remaining">60</output>
+            <span class="stat-note">seconds</span>
+          </div>
+          <div class="stat milestone-stat">
+            <span class="stat-label">Milestone</span>
+            <span class="stat-value milestone-value">10</span>
+            <span class="stat-note">cans collected</span>
+          </div>
+          <div class="stat health-stat">
+            <label class="stat-label" for="health-bar">Health</label>
+            <progress id="health-bar" class="health-bar" max="3" value="3" aria-label="3 of 3 health"></progress>
+            <output id="health-count" class="health-count">3 / 3</output>
+          </div>
+          <div class="stat water-stat">
+            <label class="stat-label" for="water-bar">Water gun</label>
+            <progress id="water-bar" class="water-bar" max="15" value="0" aria-label="0 water shots"></progress>
+            <output id="water-count" class="water-count">0 shots</output>
+          </div>
+        </div>
+
+        <p id="message" class="message" role="status" aria-live="polite">
+          Ready for the journey? Collect water and reach the village!
+        </p>
+
+        <div class="level-frame">
+          <canvas id="game-canvas" width="960" height="420" role="img"
+            aria-label="A platform game. Guide a water carrier across platforms, collect yellow water cans, avoid roaming critters, and reach the village."></canvas>
+          <div class="level-hud" aria-hidden="true">
+            <span>WATER RUN</span>
+            <span>VILLAGE &rarr;</span>
+          </div>
+        </div>
+
+        <p class="keyboard-hint">Move: <kbd>A</kbd>/<kbd>D</kbd> or <kbd>←</kbd>/<kbd>→</kbd> &nbsp; Jump: <kbd>Space</kbd>/<kbd>↑</kbd> (twice) &nbsp; Double-tap a direction to dash &nbsp; Water gun: <kbd>F</kbd></p>
+
+        <div class="touch-controls" aria-label="Touch movement controls">
+          <button id="left-button" class="touch-button" type="button" aria-label="Move left">←</button>
+          <button id="right-button" class="touch-button" type="button" aria-label="Move right">→</button>
+          <button id="down-button" class="touch-button" type="button" aria-label="Drop down through platform">↓</button>
+          <button id="jump-button" class="touch-button jump-touch-button" type="button" aria-label="Jump">JUMP</button>
+          <button id="fire-button" class="touch-button fire-touch-button" type="button" aria-label="Fire water gun">SPLASH</button>
+        </div>
+
+        <div class="controls">
+          <button id="start-button" class="control-button start-button" type="button">Start game</button>
+          <button id="reset-button" class="control-button reset-button" type="button">Reset</button>
+        </div>
+
+      </section>
+
+      <div id="confetti" class="confetti" aria-hidden="true"></div>
+    </main>
+  </body>
+</html>
